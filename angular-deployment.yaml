@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: books-angular
+  name: books-angular
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: books-angular
+    spec:
+      containers:
+      - image: moreno93/books_angular:v1
+        imagePullPolicy: IfNotPresent
+        name: books-angular
+        ports:
+        - containerPort: 80
+        resources: {}
+      restartPolicy: Always
+status: {}

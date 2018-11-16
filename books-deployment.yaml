@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: books-api
+  name: books-api
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: books-api
+    spec:
+      containers:
+      - image: moreno93/books_api:v1
+        imagePullPolicy: IfNotPresent
+        name: books-api
+        ports:
+        - containerPort: 80
+        resources: {}
+      restartPolicy: Always
+status: {}

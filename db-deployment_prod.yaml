@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: db
+  name: db
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+      - env:
+        - name: ACCEPT_EULA
+          value: 'Y'
+        - name: SA_PASSWORD
+          value: P@ssword1!
+        image: microsoft/mssql-server-linux
+        name: db
+        ports:
+        - containerPort: 1433
+        resources: {}
+      restartPolicy: Always
+status: {}

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: books-angular
+  name: books-angular
+spec:
+  type: NodePort
+  ports:
+  - name: "80"
+    port: 80
+    targetPort: 80
+  selector:
+    app: books-angular
+status:
+  loadBalancer: {}
